@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app {
+            position: relative;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" @mousedown="move"></div>
+    <script src="vue.js"></script>
+    <script src="vue-resource.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                positionX: 0,
+                positionY: 0,
+            },
+            methods: {
+                move(e) {
+                    let odiv = e.target;    
+                    let disX = e.clientX - odiv.offsetLeft;
+                    let disY = e.clientY - odiv.offsetTop;
+                    document.onmousemove = (e) => {    
+                        let left = e.clientX - disX;
+                        let top = e.clientY - disY;
+                        this.positionX = top;
+                        this.positionY = left;
+                        odiv.style.left = left + 'px';
+                        odiv.style.top = top + 'px';
+                    };
+                    document.onmouseup = (e) => {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                    };
+                }
+
+            },
+            computed: {},
+        });
+    </script>
+</body>
+</html>
