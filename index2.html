@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        [v-cloak]{
+            display: none;
+        }
+        ul li{
+            float: left;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" v-cloak="">
+        <div class="one" style="height:806px;background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTQvMDYvMTU3NzM1NDlhYzcyYTc3MzEyMGUxMjVmNzRiMDQzOTMuanBn.jpg); background-size: cover; background-position: center top; width: 100%;  opacity: 1; position: relative;">
+            <div style="position:absolute;top:0;left:0;height:100px;padding:0 40px;">
+                <div style="min-width:1024px;margin:0 auto;height:80px;margin:10px 185px">
+                    <div class="le" style="float: left;">
+                        <img src="https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDIvNzU5OGI3NTM1N2MxNzFjNjI1MGY5OTZmZWRlYzBjMzEucG5n.png" alt="" srcset="">
+                    </div>
+                    <div class="re" style="float: right; line-height: 80px;color: #fff;">
+                        <ul>
+                            <li style="width: 112px;">首页</li>
+                            <li style="width: 112px;">关于我们</li>
+                            <li style="width: 112px;">课程介绍</li>
+                            <li style="width: 112px;">新闻资讯</li>
+                            <li style="width: 112px;">联系我们</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a-lee style="height: 269px;background: #efe7c4;padding-top: 83px;">
+            <h1 slot="titles">ABOUT US  ·  关于我们</h1>
+            <div slot="text" style="margin-top: 20px;line-height: 1.5em;color: #A9A9A9;">
+                <p>応损捠捡换攴朰朲朳枛朸売壳圢桹奿妀夲夳，夵壱売壳,圢圤圥圦圧圩圪囡咍咎咐厺厼厽桼忝忞帉屴屵屶屷宓宔宖忟忡忪忬忭忮忯忰囤。忱忲忳忴念忶汹</p>
+                <p>忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怛怞怟怡怢怣怤怦怩怬怭。怮怯怰怲怳怴怵怺怼悙怿恀恁恂恃恄恅，恒団恇恈恉恍恎恏恑恒恓恔恖恗恙恚恜恝恞</p>
+                <p>恡恦恧恬恮恰恱恲恴恷恹恺，恻恽悁悆悇怵怷怸怺怼朰朲朳枛朸売悈悊。</p>
+            </div>
+        </a-lee>
+        <a-lee style="height: 179px;padding-top: 78px;">
+            <h1 slot="titles">CASE  •  案例展示  •  SHOWS</h1>
+            <div slot="text" style="margin-top: 20px;line-height: 1.5em;color: #A9A9A9;">
+                <p>社会根据受教育程度选拔人才。人通过受教育实现社会地位的变迁。教育伴</p>
+                <p>随着人类社会的产生而产生，随着社会的发展而发展，与人类社会共始终。</p>
+            </div>
+        </a-lee>
+        <div style="width: 1000px;margin: 0 auto;">
+            <no1 style="float: left;width: 30%;" v-for="i in arr" :imgsrc="i.b" :text="i.a"></no1>
+        </div>
+        <div class="footer" style="height: 65px;background: #eeeeee;float: left;width: 100%;text-align:center;line-height: 65px;">
+            版权所有 ©2014  地址：上海市松江区佘山林荫大道18号    京ICP备********号 
+        </div>
+    </div>
+    <template id="lee">
+        <div>
+            <div style="text-align: center;">
+                <div>
+                    <slot name="titles"></slot>
+                </div>
+                <div>
+                    <slot name="text"></slot>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="no1">
+        <div style="text-align: center;padding: 20px 10px;">
+            <div style="font-size: 30px;width: 100%;">
+                <img style="width: 100%;" :src="imgsrc" alt="" srcset="">
+            </div>
+            <div style="margin: 20px 0;">
+                {{text}}
+            </div>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('aLee',{
+            template:'#lee',
+            data(){
+                return {
+                    a:0
+                }
+            },
+            
+        })
+        Vue.component('no1',{
+			template:"#no1",
+			props:["imgsrc","text"],
+			data(){
+				return{
+					json:this.ddd
+				}
+			}
+		})
+        new Vue({
+            el:"#box",
+            data:{
+                a:12,
+                arr:[
+				{b:"https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTUvMDIvNTZmOTdmNDgyZWYyNWUyZjQ0MGRmNGE0MjRlMmFiMWUtMzMweDIyMC5qcGc_p_p100_p_3D.jpg",a:'FF34IKE'},
+				{b:"https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTUvMDEvZWE0YjdjMDgwYzMxY2VhNThlZTZiZTI3N2E2YzI4YjUtMzMweDIyMC5wbmc_p_p100_p_3D.png",a:'TKEG652'},
+				{b:"https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTUvMDEvOGQwM2EyNjY0ZjM3M2UwMjFmZjBiNjY0NTUwMzQ3ZjYtMzMweDIyMC5wbmc_p_p100_p_3D.png",a:'FFWD557'},
+				{b:"https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTUvMDEvOGQwM2EyNjY0ZjM3M2UwMjFmZjBiNjY0NTUwMzQ3ZjYtMzMweDIyMC5wbmc_p_p100_p_3D.png",a:'FF34IKE'},
+				{b:"https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTUvMDIvMWEwNjE2ODFlMmFjMjQwZjYwYzkyODE2MzI1NWRlMmItMzMweDIyMC5qcGc_p_p100_p_3D.jpg",a:'TKEG652'},
+				{b:"https://ccdn.goodq.top/caches/165e3167ecf65dd36391e4ea48a69a7f/aHR0cHM6Ly81NGY2Y2Q1MDNiZTRlLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTUvMDIvNWMyYjZiM2FhMmVmODBmOWVmNGFlOGE2ZGQ4MGQ3NzUtMzMweDIyMC5qcGc_p_p100_p_3D.jpg",a:'FFWD557'},
+				]
+            }
+        })
+    </script>
+</body>
+</html>
